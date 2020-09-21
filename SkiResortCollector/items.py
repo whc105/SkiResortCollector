@@ -5,8 +5,10 @@
 
 import scrapy
 
+class SKiResortUSALists(scrapy.Item):
+    pass
 
-class SkiresortcollectorItem(scrapy.Item):
+class SkiResortItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass

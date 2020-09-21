@@ -12,6 +12,7 @@ BOT_NAME = 'SkiResortCollector'
 SPIDER_MODULES = ['SkiResortCollector.spiders']
 NEWSPIDER_MODULE = 'SkiResortCollector.spiders'
 
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'SkiResortCollector (+http://www.yourdomain.com)'
@@ -44,16 +45,20 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
-#    'SkiResortCollector.middlewares.SkiresortcollectorSpiderMiddleware': 543,
-#}
+SPIDER_MIDDLEWARES = {    
+    #SPLASH
+    'scrapy_splash.SplashDeduplicateArgsMiddleware': 100
+}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'SkiResortCollector.middlewares.SkiresortcollectorDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {    
+    #SPLASH
+    'scrapy_splash.SplashCookiesMiddleware': 723,
+    'scrapy_splash.SplashMiddleware': 725,
+    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810
 
+}
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
 #EXTENSIONS = {
